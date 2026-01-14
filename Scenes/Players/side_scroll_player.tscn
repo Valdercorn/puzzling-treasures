@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dudfblbkx8yrn"]
+
+[ext_resource type="Texture2D" uid="uid://b0phkt1pw4jlb" path="res://icon.svg" id="1_vxuph"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6nvot"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vxuph")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxy6v"]
+size = Vector2(112, 112)
+
+[node name="SideScrollPlayer" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6nvot")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_gxy6v")
+
+[node name="Camera2D" type="Camera2D" parent="."]
