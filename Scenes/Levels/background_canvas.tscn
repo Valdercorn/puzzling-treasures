@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsoc3gpea8fs7"]
+
+[ext_resource type="Texture2D" uid="uid://vr1ut1osbtgc" path="res://Assets/SideScroll/Background-Day.png" id="1_5du1b"]
+
+[node name="BackgroundCanvas" type="CanvasLayer"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_5du1b")
