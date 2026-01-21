@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="Puzzling Treasures"
-run/main_scene="uid://8b3fnarschjx"
+run/main_scene="uid://dwpgj4lvl2blw"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="Puzzling Treasures"
+
+[global_group]
+
+Pushable=""
 
 [input]
 

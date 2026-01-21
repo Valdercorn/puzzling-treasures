@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc7pnupwvogxj"]
+
+[ext_resource type="Texture2D" uid="uid://broe2nl6mwfvc" path="res://Assets/TopDown/Tilemaps/ts_outerworld.png" id="1_wgqwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yl8j"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2y8m"]
+atlas = ExtResource("1_wgqwl")
+region = Rect2(128, 416, 16, 16)
+
+[node name="Block" type="RigidBody2D" groups=["Pushable"]]
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 15.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Pushable"]]
+shape = SubResource("RectangleShape2D_4yl8j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_x2y8m")

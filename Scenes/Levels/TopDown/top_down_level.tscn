@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://dwpgj4lvl2blw"]
+[gd_scene load_steps=10 format=4 uid="uid://dwpgj4lvl2blw"]
 
 [ext_resource type="PackedScene" uid="uid://d0jg4iqj762ux" path="res://Scenes/Players/top_down_player.tscn" id="1_3we2m"]
 [ext_resource type="Texture2D" uid="uid://bx3otmxf23kte" path="res://Assets/TopDown/Tilemaps/autoTile_nature.png" id="2_a3som"]
 [ext_resource type="Texture2D" uid="uid://broe2nl6mwfvc" path="res://Assets/TopDown/Tilemaps/ts_outerworld.png" id="2_iiqqr"]
+[ext_resource type="PackedScene" uid="uid://dc7pnupwvogxj" path="res://Scenes/Blocks/block.tscn" id="4_kl0vk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a3som"]
 texture = ExtResource("2_iiqqr")
@@ -1244,3 +1245,7 @@ tile_set = SubResource("TileSet_renbl")
 tile_set = SubResource("TileSet_f02xu")
 
 [node name="TopDownPlayer" parent="." instance=ExtResource("1_3we2m")]
+push_strength = 200.0
+
+[node name="Block" parent="." instance=ExtResource("4_kl0vk")]
+position = Vector2(1, -56)
