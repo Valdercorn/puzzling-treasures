@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0jg4iqj762ux"]
+[gd_scene load_steps=15 format=3 uid="uid://d0jg4iqj762ux"]
 
 [ext_resource type="Script" uid="uid://dl7wb5o31opu7" path="res://Scenes/Players/TopDownPlayer.cs" id="1_pjrqh"]
 [ext_resource type="Texture2D" uid="uid://bm0ic5xewt5dx" path="res://Assets/TopDown/Characters/char_04.png" id="2_pjrqh"]
@@ -88,6 +88,10 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjrqh"]
 size = Vector2(8, 8)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pjrqh"]
+cull_mode = 2
+polygon = PackedVector2Array(0, -2, -2, -2, -2, 2, -14, 23, -2, -4, 2, -4, 14, 23, 2, 2, 2, -2)
+
 [node name="TopDownPlayer" type="CharacterBody2D"]
 script = ExtResource("1_pjrqh")
 
@@ -107,3 +111,8 @@ position = Vector2(0, 7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 shape = SubResource("RectangleShape2D_pjrqh")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(0, -1)
+occluder = SubResource("OccluderPolygon2D_pjrqh")
+occluder_light_mask = 3
