@@ -1274,4 +1274,5 @@ shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_w0xkd")
 
 [node name="Block" parent="." instance=ExtResource("4_sep6f")]
+light_mask = 3
 position = Vector2(1, -56)
