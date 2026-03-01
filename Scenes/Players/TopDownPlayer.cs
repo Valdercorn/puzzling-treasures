@@ -96,15 +96,15 @@ public partial class TopDownPlayer : CharacterBody2D
 		if(direction == "left")
 		{
 			directionArray = 
-				[new Vector2(2.0f, 0.0f), 
-				new Vector2(2.0f, -2.0f), 
+				[new Vector2(1.0f, 0.0f), 
+				new Vector2(1.0f, -2.0f), 
 				new Vector2(-2.0f, -2.0f), 
 				new Vector2(-23.0f, -14.0f), 
 				new Vector2(4.0f, -2.0f), 
 				new Vector2(4.0f, 2.0f), 
 				new Vector2(-23.0f, 14.0f), 
 				new Vector2(-2.0f, 2.0f), 
-				new Vector2(2.0f, 2.0f)];
+				new Vector2(1.0f, 2.0f)];
 		}
 		else if (direction =="right")
 		{
