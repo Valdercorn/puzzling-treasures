@@ -8,6 +8,8 @@ public partial class SideScrollPlayer : CharacterBody2D
 	[Export]
 	public float JumpVelocity = -400.0f;
 
+	public bool doubleJumpUsed = false;
+
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
@@ -19,9 +21,19 @@ public partial class SideScrollPlayer : CharacterBody2D
 		}
 
 		// Handle Jump.
-		if (Input.IsActionJustPressed("jump") && IsOnFloor())
+		if (Input.IsActionJustPressed("jump") && (IsOnFloor() || !doubleJumpUsed))
 		{
+			if(!IsOnFloor() && !doubleJumpUsed)
+			{
+				doubleJumpUsed = true;
+			}
+
 			velocity.Y = JumpVelocity;
+		}
+
+		if (IsOnFloor())
+		{
+			doubleJumpUsed = false;
 		}
 
 		// Get the input direction and handle the movement/deceleration.
