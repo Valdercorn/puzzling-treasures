@@ -13,7 +13,7 @@ public partial class SideScrollPlayer : CharacterBody2D
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
-
+		//FloorMaxAngle = Mathf.Pi / 2; // Use if wanting wall to become a floor
 		// Add the gravity.
 		if (!IsOnFloor())
 		{
@@ -21,9 +21,9 @@ public partial class SideScrollPlayer : CharacterBody2D
 		}
 
 		// Handle Jump.
-		if (Input.IsActionJustPressed("jump") && (IsOnFloor() || !doubleJumpUsed))
+		if (Input.IsActionJustPressed("jump") && (IsOnFloor() || IsOnWall() || !doubleJumpUsed))
 		{
-			if(!IsOnFloor() && !doubleJumpUsed)
+			if(!IsOnFloor() && !IsOnWall() && !doubleJumpUsed)
 			{
 				doubleJumpUsed = true;
 			}
@@ -31,7 +31,7 @@ public partial class SideScrollPlayer : CharacterBody2D
 			velocity.Y = JumpVelocity;
 		}
 
-		if (IsOnFloor())
+		if (IsOnFloor() || IsOnWall())
 		{
 			doubleJumpUsed = false;
 		}

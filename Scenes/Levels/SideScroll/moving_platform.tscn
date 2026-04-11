@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://5le45axmnl8h"]
+
+[ext_resource type="Script" uid="uid://didivaysrwwgk" path="res://Scenes/Levels/SideScroll/MovingPlatform.cs" id="1_0pvqq"]
+[ext_resource type="Texture2D" uid="uid://dv55o88ou8dn2" path="res://Assets/SideScroll/tiles_spritesheet.png" id="2_jt0si"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvebr"]
+atlas = ExtResource("2_jt0si")
+region = Rect2(576, 432, 70, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqpyl"]
+size = Vector2(70, 40)
+
+[node name="MovingPlatform" type="Node2D"]
+script = ExtResource("1_0pvqq")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+texture = SubResource("AtlasTexture_jvebr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+shape = SubResource("RectangleShape2D_qqpyl")
