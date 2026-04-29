@@ -93,6 +93,8 @@ cull_mode = 2
 polygon = PackedVector2Array(0, -2, -2, -2, -2, 2, -14, 23, -2, -4, 2, -4, 14, 23, 2, 2, 2, -2)
 
 [node name="TopDownPlayer" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_pjrqh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

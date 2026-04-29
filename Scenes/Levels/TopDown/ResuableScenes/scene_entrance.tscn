@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://0gw8fk8f3fq4"]
+
+[ext_resource type="Script" uid="uid://d1oyecmuw8td1" path="res://Scenes/Levels/TopDown/ResuableScenes/SceneEntrance.cs" id="1_18ymw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtdhq"]
+
+[node name="SceneEntrance" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_18ymw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gtdhq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -15,6 +15,10 @@ run/main_scene="uid://dwpgj4lvl2blw"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SceneManager="*res://Scenes/Levels/SceneManagement/SceneManager.tscn"
+
 [dotnet]
 
 project/assembly_name="Puzzling Treasures"
