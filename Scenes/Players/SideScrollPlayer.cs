@@ -13,9 +13,12 @@ public partial class SideScrollPlayer : CharacterBody2D
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
+
+		bool isOnFloor = IsOnFloor();
+		bool isOnWall = IsOnWall();
 		//FloorMaxAngle = Mathf.Pi / 2; // Use if wanting wall to become a floor
 		// Add the gravity.
-		if (!IsOnFloor())
+		if (!isOnFloor)
 		{
 			velocity += GetGravity() * (float)delta;
 		}
@@ -23,15 +26,17 @@ public partial class SideScrollPlayer : CharacterBody2D
 		// Handle Jump.
 		if (Input.IsActionJustPressed("jump") && (IsOnFloor() || IsOnWall() || !doubleJumpUsed))
 		{
-			if(!IsOnFloor() && !IsOnWall() && !doubleJumpUsed)
+			if(!isOnFloor && !isOnWall && !doubleJumpUsed)
 			{
 				doubleJumpUsed = true;
 			}
-
+			
 			velocity.Y = JumpVelocity;
+
+			
 		}
 
-		if (IsOnFloor() || IsOnWall())
+		if (isOnFloor || isOnWall)
 		{
 			doubleJumpUsed = false;
 		}
@@ -42,11 +47,32 @@ public partial class SideScrollPlayer : CharacterBody2D
 		if (direction != Vector2.Zero)
 		{
 			velocity.X = direction.X * Speed;
+			AnimatedSprite2D anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+			if(velocity.X > 0.0f)
+			{
+				anim.FlipH = false;
+			}else
+			{
+				anim.FlipH = true;
+			}
+			
+			if(isOnFloor){
+				anim.Play("run");
+			}
 		}
 		else
 		{
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("idle");
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 		}
+
+		if(velocity.Y > 0){
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("jump");
+		} 
+		else if (velocity.Y < 0){
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("fall");
+		}
+		
 
 		Velocity = velocity;
 		MoveAndSlide();

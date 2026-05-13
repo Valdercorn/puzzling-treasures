@@ -1,30 +1,101 @@
-[gd_scene load_steps=5 format=3 uid="uid://dudfblbkx8yrn"]
+[gd_scene load_steps=18 format=3 uid="uid://dudfblbkx8yrn"]
 
 [ext_resource type="Script" uid="uid://buu3tgiwy1npr" path="res://Scenes/Players/SideScrollPlayer.cs" id="1_6nvot"]
-[ext_resource type="Texture2D" uid="uid://b0phkt1pw4jlb" path="res://icon.svg" id="1_vxuph"]
+[ext_resource type="Texture2D" uid="uid://bbwjfloijuqk" path="res://Assets/SideScroll/Thief Boy/Idle/Idle0001.png" id="2_u0tho"]
+[ext_resource type="Texture2D" uid="uid://bcoocwn8vggma" path="res://Assets/SideScroll/Thief Boy/Idle/Idle0002.png" id="3_nhq3p"]
+[ext_resource type="Texture2D" uid="uid://ou5rv3rc1wp8" path="res://Assets/SideScroll/Thief Boy/Idle/Idle0003.png" id="4_wehs4"]
+[ext_resource type="Texture2D" uid="uid://da3cmw4hd0whi" path="res://Assets/SideScroll/Thief Boy/Idle/Idle0004.png" id="5_gsh3r"]
+[ext_resource type="Texture2D" uid="uid://b1ebe2b22qb7b" path="res://Assets/SideScroll/Thief Boy/Idle/Idle0005.png" id="6_msaes"]
+[ext_resource type="Texture2D" uid="uid://csavwrniinbc7" path="res://Assets/SideScroll/Thief Boy/Idle/Idle0006.png" id="7_v250i"]
+[ext_resource type="Texture2D" uid="uid://bkgf73dwdfx21" path="res://Assets/SideScroll/Thief Boy/Run/Run0001.png" id="8_mayio"]
+[ext_resource type="Texture2D" uid="uid://c8s874q3kifwq" path="res://Assets/SideScroll/Thief Boy/Jump/Jump0002.png" id="9_0dbcj"]
+[ext_resource type="Texture2D" uid="uid://h36nj1pqvbg6" path="res://Assets/SideScroll/Thief Boy/Run/Run0002.png" id="9_f2kgw"]
+[ext_resource type="Texture2D" uid="uid://h62qq27br06b" path="res://Assets/SideScroll/Thief Boy/Run/Run0003.png" id="10_iqda1"]
+[ext_resource type="Texture2D" uid="uid://h7sm3cmnw3m6" path="res://Assets/SideScroll/Thief Boy/Run/Run0004.png" id="11_3g38h"]
+[ext_resource type="Texture2D" uid="uid://c0upej3vve23r" path="res://Assets/SideScroll/Thief Boy/Run/Run0005.png" id="12_bx4mh"]
+[ext_resource type="Texture2D" uid="uid://b3bixu6beu6i" path="res://Assets/SideScroll/Thief Boy/Jump/Jump0006.png" id="13_8rsuj"]
+[ext_resource type="Texture2D" uid="uid://pnhtnsdm0xn1" path="res://Assets/SideScroll/Thief Boy/Run/Run0006.png" id="13_y11pq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6nvot"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_vxuph")
+"texture": ExtResource("13_8rsuj")
 }],
 "loop": true,
-"name": &"default",
+"name": &"fall",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u0tho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_nhq3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wehs4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gsh3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_msaes")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_v250i")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_0dbcj")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_mayio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_f2kgw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_iqda1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3g38h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_bx4mh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_y11pq")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxy6v"]
-size = Vector2(16, 16)
+size = Vector2(8, 14)
 
 [node name="SideScrollPlayer" type="CharacterBody2D"]
 script = ExtResource("1_6nvot")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.125, 0.125)
+scale = Vector2(0.032, 0.032)
 sprite_frames = SubResource("SpriteFrames_6nvot")
+animation = &"fall"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_gxy6v")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
