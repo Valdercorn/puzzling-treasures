@@ -8,7 +8,17 @@ public partial class SideScrollPlayer : CharacterBody2D
 	[Export]
 	public float JumpVelocity = -400.0f;
 
+	public Vector2 start;
 	public bool doubleJumpUsed = false;
+
+    public override void _Ready()
+    {
+		if(SceneManager.Instance.player_spawn_position != new Vector2(0,0))
+			GlobalPosition = SceneManager.Instance.player_spawn_position;
+
+        start = GlobalPosition;
+    }
+
 
 	public override void _PhysicsProcess(double delta)
 	{

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.ComponentModel;
 
 public partial class TopDownPlayer : CharacterBody2D
 {
@@ -8,10 +9,14 @@ public partial class TopDownPlayer : CharacterBody2D
 	float speed = 100.0f;
 	[Export]
 	float push_strength = 100.0f;
+	[Export]
+	Vector2 start;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		if(SceneManager.Instance.player_spawn_position != new Vector2(0,0))
+			GlobalPosition = SceneManager.Instance.player_spawn_position;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
